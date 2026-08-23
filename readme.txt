@@ -4,7 +4,7 @@ Tags: form builder, multi-step form, forms, contact form, submissions
 Requires at least: 5.0
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Bullet Forms is a lightweight WordPress plugin to create multi-step forms, collect submissions, and review or export responses from the dashboard.

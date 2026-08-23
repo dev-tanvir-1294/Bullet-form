@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Bullet Forms
  * Description: Bullet Forms lets you build multi-step forms, collect submissions, and export them to CSV.
- * Version: 1.1.5
+ * Version: 1.1.6
  * Author: Md. Tanvir Ahmed (mdtanvirahmed)
  * Author URI: https://i-am-tanvir.netlify.app/
  * License: GPLv2 or later
@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) {
 // Define constants
 define('BFMSF_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('BFMSF_PLUGIN_URL', plugin_dir_url(__FILE__));
-define('BFMSF_VERSION', '1.1.5');
+define('BFMSF_VERSION', '1.1.6');
 
 // Include necessary files
 require_once BFMSF_PLUGIN_DIR . 'includes/class-bfmsf-settings.php';
