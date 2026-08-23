@@ -1,0 +1,1 @@
+- Cares about preserving the existing visual design/layout and wants assurance that code changes won't break the UI or styling. Confidence: 0.7

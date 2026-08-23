@@ -1,0 +1,667 @@
+/* Frontend CSS - All fields now consistent */
+
+.bfmsf-form-wrapper {
+    max-width: 600px;
+    margin: 20px auto;
+    border: none;
+}
+
+.bfmsf-form-container {
+    background: var(--bfmsf-container-bg, #fff);
+    padding: var(--bfmsf-padding, 30px);
+    border-radius: var(--bfmsf-border-radius, 5px);
+    box-shadow: none !important;
+}
+
+.bfmsf-form-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--bfmsf-text-color, #1f2937);
+    font-size: var(--bfmsf-heading-size, 24px);
+    font-weight: 600;
+}
+
+.bfmsf-form-description {
+    color: var(--bfmsf-text-color, #1f2937);
+    margin-bottom: 20px;
+    font-size: var(--bfmsf-body-font-size, 14px);
+    line-height: var(--bfmsf-line-height, 1.6);
+}
+
+.bfmsf-progress-bar {
+    height: 4px;
+    background: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.bfmsf-progress-fill {
+    height: 100%;
+    background: var(--bfmsf-primary-color, #0073aa);
+    transition: width 0.3s ease;
+}
+
+.bfmsf-form-steps {
+    min-height: 300px;
+}
+
+.bfmsf-form-step {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.bfmsf-step-title {
+    font-size: 12px;
+    color: var(--bfmsf-text-color, #1f2937);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.bfmsf-form-fields {
+    margin-bottom: 20px;
+}
+
+/* ===== Row / column layout ===== */
+.bfmsf-form-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.bfmsf-form-row .bfmsf-form-field-group {
+    min-width: 0;
+}
+
+.bfmsf-form-field-group {
+    margin-bottom: 20px;
+}
+
+.bfmsf-form-field-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--bfmsf-text-color, #1f2937);
+    font-size: 14px;
+}
+
+/* ================================================================
+   ALL INPUT FIELDS - Consistent styling
+   ================================================================ */
+.bfmsf-form-field-group input[type="text"],
+.bfmsf-form-field-group input[type="email"],
+.bfmsf-form-field-group input[type="tel"],
+.bfmsf-form-field-group input[type="number"],
+.bfmsf-form-field-group input[type="date"],
+.bfmsf-form-field-group input[type="datetime-local"],
+.bfmsf-form-field-group input[type="url"],
+.bfmsf-form-field-group input[type="file"],
+.bfmsf-form-field-group input[type="password"],
+.bfmsf-form-field-group textarea,
+.bfmsf-form-field-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--bfmsf-border-color, #d1d5db) !important;
+    border-radius: var(--bfmsf-border-radius, 3px) !important;
+    font-family: inherit;
+    font-size: 14px;
+    color: #1f2937;
+    box-sizing: border-box;
+    background: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    line-height: 1.5;
+    height: auto;
+    min-height: 42px;
+
+}
+
+/* ── Multi-select ── */
+.bfmsf-form-field-group select[multiple] {
+    min-height: 120px;
+    padding: 8px 10px;
+}
+
+.bfmsf-form-field-group select[multiple] option {
+    padding: 4px 8px;
+}
+
+/* ── File input ── */
+.bfmsf-form-field-group input[type="file"] {
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.bfmsf-form-field-group input[type="file"]::file-selector-button {
+    padding: 6px 14px;
+    border: 1px solid var(--bfmsf-border-color, #d1d5db);
+    border-radius: var(--bfmsf-border-radius, 3px);
+    background: #f3f4f6;
+    color: #374151;
+    font-family: inherit;
+    font-size: 13px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background 0.2s;
+}
+
+.bfmsf-form-field-group input[type="file"]::file-selector-button:hover {
+    background: #e5e7eb;
+}
+
+/* ── Select dropdown ── */
+.bfmsf-form-field-group select {
+    appearance: auto;
+    -webkit-appearance: auto;
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 34px;
+}
+
+.bfmsf-form-field-group select[multiple] {
+    background-image: none;
+    padding-right: 12px;
+}
+
+/* ── Textarea ── */
+.bfmsf-form-field-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* ── Focus state ── */
+.bfmsf-form-field-group input:focus,
+.bfmsf-form-field-group textarea:focus,
+.bfmsf-form-field-group select:focus {
+    outline: none;
+    border-color: var(--bfmsf-primary-color, #0073aa) !important;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+}
+
+/* ── Error styling ── */
+.bfmsf-form-field-group input.error,
+.bfmsf-form-field-group select.error,
+.bfmsf-form-field-group textarea.error {
+    border-color: #dc3545 !important;
+    background-color: #fff5f5;
+}
+
+/* ================================================================
+   CHECKBOX & RADIO - Custom styled
+   ================================================================ */
+.bfmsf-form-field-group .bfmsf-checkbox-label,
+.bfmsf-form-field-group .bfmsf-radio-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--bfmsf-text-color, #1f2937);
+    padding: 4px 0;
+    line-height: 1.5;
+}
+
+.bfmsf-form-field-group .bfmsf-checkbox-label input[type="checkbox"],
+.bfmsf-form-field-group .bfmsf-radio-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Custom checkbox ── */
+.bfmsf-form-field-group .bfmsf-checkbox-label .bfmsf-custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--bfmsf-border-color, #d1d5db);
+    border-radius: 4px;
+    background: #fff;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.bfmsf-form-field-group .bfmsf-checkbox-label:hover .bfmsf-custom-checkbox {
+    border-color: var(--bfmsf-primary-color, #0073aa);
+}
+
+.bfmsf-form-field-group .bfmsf-checkbox-label input:checked + .bfmsf-custom-checkbox {
+    background: var(--bfmsf-primary-color, #0073aa);
+    border-color: var(--bfmsf-primary-color, #0073aa);
+}
+
+.bfmsf-form-field-group .bfmsf-checkbox-label input:checked + .bfmsf-custom-checkbox::after {
+    content: "✓";
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.bfmsf-form-field-group .bfmsf-checkbox-label input:focus + .bfmsf-custom-checkbox {
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+/* ── Custom radio ── */
+.bfmsf-form-field-group .bfmsf-radio-label .bfmsf-custom-radio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--bfmsf-border-color, #d1d5db);
+    border-radius: 50%;
+    background: #fff;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.bfmsf-form-field-group .bfmsf-radio-label:hover .bfmsf-custom-radio {
+    border-color: var(--bfmsf-primary-color, #0073aa);
+}
+
+.bfmsf-form-field-group .bfmsf-radio-label input:checked + .bfmsf-custom-radio {
+    border-color: var(--bfmsf-primary-color, #0073aa);
+}
+
+.bfmsf-form-field-group .bfmsf-radio-label input:checked + .bfmsf-custom-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bfmsf-primary-color, #0073aa);
+}
+
+.bfmsf-form-field-group .bfmsf-radio-label input:focus + .bfmsf-custom-radio {
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.15);
+}
+
+/* ── Confirm field (larger checkbox) ── */
+.bfmsf-form-field-group .bfmsf-checkbox-label.confirm-field {
+    padding: 8px 0;
+    font-weight: 500;
+}
+
+.bfmsf-form-field-group .bfmsf-checkbox-label.confirm-field .bfmsf-custom-checkbox {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border-width: 2px;
+    border-radius: 4px;
+    margin-top: 0;
+}
+
+/* ================================================================
+   STAR RATING
+   ================================================================ */
+.bfmsf-star-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.bfmsf-star-rating input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.bfmsf-star-rating label {
+    font-size: 28px;
+    color: #d1d5db;
+    cursor: pointer;
+    transition: color 0.2s;
+    line-height: 1;
+}
+
+.bfmsf-star-rating label:hover,
+.bfmsf-star-rating label:hover ~ label,
+.bfmsf-star-rating input[type="radio"]:checked ~ label {
+    color: #f59e0b;
+}
+
+/* ================================================================
+   SIGNATURE CANVAS
+   ================================================================ */
+.bfmsf-signature-canvas {
+    border: 1px solid var(--bfmsf-border-color, #d1d5db);
+    border-radius: var(--bfmsf-border-radius, 3px);
+    width: 100%;
+    height: 150px;
+    background: #f9fafb;
+    touch-action: none;
+    cursor: crosshair;
+}
+
+.bfmsf-form-field-group .bfmsf-hint {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 6px;
+}
+
+/* ================================================================
+   REPEATABLE FIELDSET
+   ================================================================ */
+.bfmsf-repeatable-item {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.bfmsf-repeatable-item input {
+    flex: 1;
+    min-height: 42px;
+}
+
+.bfmsf-repeatable-remove {
+    background: #fee2e2;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 10px;
+    cursor: pointer;
+    color: #dc2626;
+    font-size: 14px;
+    line-height: 1;
+}
+
+.bfmsf-repeatable-add {
+    background: #e0e7ff;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    color: #4f46e5;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.bfmsf-repeatable-add:hover {
+    background: #c7d2fe;
+}
+
+/* ================================================================
+   DIVIDER
+   ================================================================ */
+.bfmsf-divider {
+    border: none;
+    border-top: 2px solid #e5e7eb;
+    margin: 20px 0;
+}
+
+/* ================================================================
+   HTML FIELD
+   ================================================================ */
+.bfmsf-html-field {
+    padding: 4px 0;
+    color: var(--bfmsf-text-color, #1f2937);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ================================================================
+   CAPTCHA PLACEHOLDERS
+   ================================================================ */
+.bfmsf-hcaptcha,
+.bfmsf-recaptcha,
+.bfmsf-turnstile {
+    min-height: 80px;
+    background: #f9fafb;
+    border: 1px dashed var(--bfmsf-border-color, #d1d5db);
+    border-radius: var(--bfmsf-border-radius, 3px);
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+/* ================================================================
+   FORM NAVIGATION
+   ================================================================ */
+.bfmsf-form-navigation {
+    display: flex;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.bfmsf-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: var(--bfmsf-border-radius, 3px);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s;
+    font-family: inherit;
+    text-align: center;
+}
+
+.bfmsf-prev-btn,
+.bfmsf-next-btn {
+    background: var(--bfmsf-primary-color, #0073aa);
+    color: white;
+}
+
+.bfmsf-prev-btn:hover,
+.bfmsf-next-btn:hover {
+    background: #005a87;
+}
+
+.bfmsf-submit-btn {
+    background: var(--bfmsf-button-bg-color, #28a745);
+    color: var(--bfmsf-button-text-color, #ffffff);
+}
+
+.bfmsf-submit-btn:hover {
+    background: #218838;
+}
+
+/* ================================================================
+   SUCCESS MESSAGE
+   ================================================================ */
+.bfmsf-success-message {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 15px 20px;
+    border-radius: var(--bfmsf-border-radius, 3px);
+    text-align: center;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* ================================================================
+   RESPONSIVE
+   ================================================================ */
+@media (max-width: 600px) {
+    .bfmsf-form-container {
+        padding: 20px;
+    }
+
+    .bfmsf-form-title {
+        font-size: 20px;
+    }
+
+    .bfmsf-form-navigation {
+        flex-direction: column;
+    }
+
+    .bfmsf-btn {
+        width: 100%;
+    }
+
+    /* ── Force rows to stack ── */
+    .bfmsf-form-row {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    /* ── Force each field group to take full width ── */
+    .bfmsf-form-row .bfmsf-form-field-group {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        margin-bottom: 0 !important;
+        /* Override any inline flex:1 */
+        flex: 0 0 100% !important;
+    }
+
+    /* ── Phone field inner wrapper ── */
+    .bfmsf-phone-wrapper {
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
+
+    .bfmsf-phone-wrapper select,
+    .bfmsf-phone-wrapper input[type="tel"] {
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .bfmsf-form-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    .bfmsf-form-row .bfmsf-form-field-group {
+        flex: 1; /* two columns on tablet */
+        width: 100% !important;
+    }
+}
+
+
+/* ── Phone wrapper: unified border ── */
+.bfmsf-phone-wrapper {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--bfmsf-border-color, #d1d5db);
+    border-radius: var(--bfmsf-border-radius, 3px);
+    background: #fff;
+    overflow: hidden;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.bfmsf-phone-wrapper:focus-within {
+    border-color: var(--bfmsf-primary-color, #0073aa);
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+}
+
+/* ── Select: remove default arrow, add custom icon ── */
+.bfmsf-phone-wrapper select.bfmsf-phone-country {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 80px;
+    padding: 10px 30px 10px 12px;   /* make room for the icon */
+    border: none !important;
+    border-radius: 0 !important;
+    background: #f3f4f6;
+    font-size: 14px;
+    color: #1f2937;
+    cursor: pointer;
+    outline: none;
+    appearance: none;               /* ← removes default arrow */
+    -webkit-appearance: none;
+    position: relative;
+    z-index: 1;
+    height: auto;
+    min-height: 42px;
+}
+
+/* ── Custom icon (phone) on the right side of the select ── */
+.bfmsf-phone-wrapper::after {
+    content: "";              
+    position: absolute;
+    left: auto;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    color: #6b7280;
+    z-index: 2;
+}
+
+/* ── Phone number input: clean, borderless ── */
+.bfmsf-phone-wrapper input[type="tel"] {
+    flex: 1;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #1f2937;
+    background: transparent;
+    outline: none;
+    min-height: 42px;
+}
+
+.bfmsf-phone-wrapper input[type="tel"]:focus {
+    box-shadow: none !important;
+}
+
+
+.bfmsf-confirmation-text {
+    background: #f8fafc;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    margin-bottom: 12px;
+    max-height: 200px;
+    overflow-y: auto;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #334155;
+}
+.bfmsf-confirmation-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ── Confirm field: center checkbox vertically with text ── */
+.bfmsf-form-field-group .bfmsf-checkbox-label.confirm-field {
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+
+
+/* Ensure the custom checkbox is also centered */
+.bfmsf-checkbox-label.confirm-field .bfmsf-custom-checkbox {
+    flex-shrink: 0;
+    margin-top: 0; /* remove any top margin */
+}
+
+
+@media only screen and (max-width: 600px) {
+    .bfmsf-form-field-group{
+	width:100%
+}
+}
