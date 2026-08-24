@@ -90,10 +90,16 @@ class BFMSF_Core {
         );
 
         // Submissions page
+        $unread = BFMSF_Settings::get_total_unread_submissions();
+        $submissions_label = esc_html__('Submissions', 'frankel-bullet-form');
+        if ($unread > 0) {
+            $submissions_label .= ' <span class="awaiting-mod">' . number_format_i18n($unread) . '</span>';
+        }
+
         add_submenu_page(
             'bfmsf-forms',
             esc_html__('Submissions', 'frankel-bullet-form'),
-            esc_html__('Submissions', 'frankel-bullet-form'),
+            $submissions_label,
             'manage_options',
             'bfmsf-submissions',
             array($this, 'submissions_page')
@@ -118,6 +124,10 @@ class BFMSF_Core {
      * Submissions page callback
      */
     public function submissions_page() {
+        $form_id = isset($_GET['form_id']) ? intval($_GET['form_id']) : 0;
+        if ($form_id > 0) {
+            BFMSF_Settings::mark_submissions_read($form_id);
+        }
         include BFMSF_PLUGIN_DIR . 'templates/submissions-page.php';
     }
 

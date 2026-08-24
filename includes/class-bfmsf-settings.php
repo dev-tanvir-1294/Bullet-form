@@ -145,4 +145,41 @@ class BFMSF_Settings {
             "SELECT COUNT(*) FROM $table WHERE form_id = %d", $form_id
         ));
     }
+
+    /* ── Unread submission notifications ── */
+    public static function get_unread_submission_count($form_id) {
+        global $wpdb;
+        $table = $wpdb->prefix . 'bfmsf_submissions';
+        $read  = get_option('bfmsf_read_submissions', array());
+        if (!is_array($read)) $read = array();
+        $last = isset($read[$form_id]) ? (int) $read[$form_id] : 0;
+        return (int) $wpdb->get_var($wpdb->prepare(
+            "SELECT COUNT(*) FROM $table WHERE form_id = %d AND id > %d",
+            $form_id,
+            $last
+        ));
+    }
+
+    public static function get_total_unread_submissions() {
+        $total = 0;
+        foreach (self::get_all_forms() as $form) {
+            $total += self::get_unread_submission_count($form->ID);
+        }
+        return $total;
+    }
+
+    public static function mark_submissions_read($form_id) {
+        global $wpdb;
+        $table = $wpdb->prefix . 'bfmsf_submissions';
+        $max = (int) $wpdb->get_var($wpdb->prepare(
+            "SELECT MAX(id) FROM $table WHERE form_id = %d", $form_id
+        ));
+        if ($max < 1) {
+            return;
+        }
+        $read = get_option('bfmsf_read_submissions', array());
+        if (!is_array($read)) $read = array();
+        $read[$form_id] = $max;
+        update_option('bfmsf_read_submissions', $read);
+    }
 }
